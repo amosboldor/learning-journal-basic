@@ -20,7 +20,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                  <li class="active"><a href="home.html">Home</a></li>
+                  <li><a href="home.html">Home</a></li>
                   <li><a href="new_entry.html">Create New Entry</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
@@ -30,15 +30,27 @@
           </div>
         </nav>
         <main class="container">
-            <ul>
-                <li><a href="journal1.html">Fake Title 1</a> Created: Sunday, 18 December 2016</li>
-                <li><a href="journal2.html">Fake Title 2</a> Created: Sunday, 18 December 2016</li>
-                <li><a href="journal3.html">Fake Title 3</a> Created: Sunday, 18 December 2016</li>
-            </ul>
+            <div class="form-group">
+                <label for="Title">Title:</label>
+                <input class="form-control" rows="5" id="Title"></input>
+                <label for="Entry">Entry:</label>
+                <textarea class="form-control" rows="5" id="Entry"></textarea>
+            </div>
+              <button type="button" class="btn btn-primary">Save New Entry</button>
+              <a href="home.html"><button type="button" class="btn btn-default">Cancel</button></a>
         </main>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $( document ).ready(function() {
+            stuff = localStorage.getItem('stuff');
+            stuff = JSON.parse(stuff);
+            $('#Title').val(stuff.title)
+            $('#Entry').val(stuff.text)
+            localStorage.removeItem('stuff')
+        });
+        </script>
     </body>
 </html>

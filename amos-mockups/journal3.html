@@ -20,7 +20,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                  <li class="active"><a href="home.html">Home</a></li>
+                  <li><a href="home.html">Home</a></li>
                   <li><a href="new_entry.html">Create New Entry</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
@@ -30,15 +30,25 @@
           </div>
         </nav>
         <main class="container">
-            <ul>
-                <li><a href="journal1.html">Fake Title 1</a> Created: Sunday, 18 December 2016</li>
-                <li><a href="journal2.html">Fake Title 2</a> Created: Sunday, 18 December 2016</li>
-                <li><a href="journal3.html">Fake Title 3</a> Created: Sunday, 18 December 2016</li>
-            </ul>
+            <h1>Fake Title 3</h1>
+            <h2>Created: Sunday, 18 December 2016</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <button type="button" id="target" class="btn btn-primary">Edit</button></a>
         </main>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $( "#target" ).click(function() {
+                var title = $("main>h1").text();
+                var text = $("main>p").text();
+                data = {title: title.trim(), text: text.trim()};
+                localStorage.setItem('stuff',JSON.stringify(data));
+                window.location = 'edit_entry.html';
+            });
+        </script>
     </body>
 </html>
